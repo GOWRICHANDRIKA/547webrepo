@@ -128,16 +128,16 @@ services:
     mysql: 
         image: mysql 
         environment: 
-        MYSQL_ROOT_PASSWORD: root 
+            MYSQL_ROOT_PASSWORD: root 
         volumes: 
         - mysql_data:/var/lib/mysql 
         networks: 
         - mynetwork
 
-    volumes: 
-        mysql_data:
+volumes: 
+    mysql_data:
 
-    networks: 
-        mynetwork: 
+networks: 
+    mynetwork: 
 docker compose up -d
 ps,restart,down,stop,start,logs,
