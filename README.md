@@ -110,16 +110,34 @@ sudo apt update sudo apt install docker.io->yes sudo apt install nano sudo apt i
 
 ipv4 address cd target ls ipv4 target
 
-minikube start kubectl create deployment xyz --image nginx kubectl expose deployment xyz --image nginx kubectl expose deployment xyz --type NodePort --port=80 --target-port=80 kubectl scale deployment xyz --replicas=4 kubectl get deployments kubectl get pods kubectl get services minikube service --all kubectl port-forward svc/xyz 8090:80 minikube dashboard
+minikube start. kubectl create deployment xyz --image nginx. kubectl expose deployment xyz --image nginx .kubectl expose deployment xyz --type NodePort --port=80 --target-port=80. kubectl scale deployment xyz --replicas=4. kubectl get deployments. kubectl get pods. kubectl get services. minikube service --all. kubectl port-forward svc/xyz 8090:80 .minikube dashboard
 
 docker run jasonrivers/nagios docker run -d -p 8088:80 jasonrivers/nagios
 
-services: nginx: image: nginx ports: - "8080:80" depends_on: - mysql networks: - mynetwork
+////
+services:
+    nginx: 
+        image: nginx 
+        ports: 
+        - "8080:80" 
+        depends_on: 
+        - mysql 
+        networks: 
+        - mynetwork
 
-mysql: image: mysql environment: MYSQL_ROOT_PASSWORD: root volumes: - mysql_data:/var/lib/mysql networks: - mynetwork
+    mysql: 
+        image: mysql 
+        environment: 
+        MYSQL_ROOT_PASSWORD: root 
+        volumes: 
+        - mysql_data:/var/lib/mysql 
+        networks: 
+        - mynetwork
 
-volumes: mysql_data:
+    volumes: 
+        mysql_data:
 
-networks: mynetwork: docker compose up -d
-
-ps,rrstart,down,stop,start,logs,
+    networks: 
+        mynetwork: 
+docker compose up -d
+ps,restart,down,stop,start,logs,
